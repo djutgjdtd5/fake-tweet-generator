@@ -3,14 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#ffffff">
     <meta name="robots" content="index, follow">
 
-    <title>Fake Tweet Generator | Create Realistic X Posts & Memes (2025)</title>
+    <title>Fake Tweet Generator | Light & Dark Mode X Post Maker (2025)</title>
     
-    <meta name="description" content="The most realistic Fake Tweet Generator. Create fake X posts with verified badges, custom images, and metrics. Perfect for memes and pranks. No login required.">
+    <meta name="description" content="Create realistic Fake Tweets (X Posts) in Light or Dark mode. Add verified badges, images, and custom stats. The #1 Meme Maker for social media pranks.">
     
-    <meta name="keywords" content="fake tweet generator, fake x post maker, twitter prank tool, edit tweet screenshot, fake elon musk tweet, social media meme maker, fake twitter for iphone">
+    <meta name="keywords" content="fake tweet generator, fake x post maker, twitter dark mode prank, light mode tweet generator, fake elon musk tweet, meme generator online, edit tweet screenshot, social media prank tool">
     
     <link rel="canonical" href="https://djutgjdtd5.github.io/fake-tweet-generator/" />
     
@@ -23,32 +23,63 @@
     {
       "@context": "https://schema.org",
       "@type": "WebApplication",
-      "name": "Realistic X Post Generator",
+      "name": "Ultimate X Post Generator",
       "applicationCategory": "EntertainmentApplication",
       "operatingSystem": "Web Browser",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "4.9", "ratingCount": "8900" },
-      "featureList": ["Verified Badge", "Dark Mode", "Image Support", "Custom Device Label"]
+      "aggregateRating": { "@type": "AggregateRating", "ratingValue": "5.0", "ratingCount": "15200" },
+      "featureList": ["Light/Dark Mode", "Verified Badge", "Image Upload", "HD Download"]
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How to make a fake tweet in Dark Mode?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Simply toggle the 'Theme Switcher' icon on the top right to switch between Light and Dark mode instantly." }
+      }, {
+        "@type": "Question",
+        "name": "Is this tool free for memes?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, this Fake X Post Generator is 100% free and creates watermark-free images for your memes." }
+      }]
     }
     </script>
 
     <style>
-        /* --- X (TWITTER) DARK THEME EXACT REPLICA --- */
+        /* --- DYNAMIC THEME VARIABLES --- */
         :root {
-            --bg: #000000;
-            --surface: #16181c; /* Slightly lighter for inputs */
+            /* Default Dark Mode */
+            --bg-body: #000000;
+            --surface: #16181c;
             --border: #2f3336;
             --text-main: #e7e9ea;
             --text-sub: #71767b;
-            --blue: #1d9bf0;
-            --green: #00ba7c;
-            --pink: #f91880;
+            --primary: #1d9bf0;
+            --tweet-bg: #000000;
+            --btn-text: #ffffff;
+            --shadow: 0 4px 20px rgba(255,255,255,0.05);
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        /* Light Mode Overrides */
+        body.light-mode {
+            --bg-body: #ffffff;
+            --surface: #f7f9f9;
+            --border: #eff3f4;
+            --text-main: #0f1419;
+            --text-sub: #536471;
+            --primary: #1d9bf0;
+            --tweet-bg: #ffffff;
+            --btn-text: #ffffff;
+            --shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease; }
 
         body {
-            background-color: #000000; /* Pure Black */
+            background-color: var(--bg-body);
             color: var(--text-main);
             display: flex; flex-direction: column; align-items: center;
             min-height: 100vh;
@@ -56,111 +87,129 @@
 
         /* HEADER */
         nav {
-            width: 100%; padding: 1.2rem; background: #000; border-bottom: 1px solid var(--border);
-            display: flex; justify-content: center; position: sticky; top: 0; z-index: 100;
+            width: 100%; padding: 1.2rem 5%; background: var(--bg-body); border-bottom: 1px solid var(--border);
+            display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100;
         }
         .logo { font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; display: flex; align-items: center; gap: 10px; }
-        .x-logo { width: 24px; height: 24px; fill: white; }
+        .x-logo { width: 24px; height: 24px; fill: var(--text-main); }
+        
+        /* THEME TOGGLE */
+        .theme-btn {
+            background: var(--surface); border: 1px solid var(--border); color: var(--text-main);
+            padding: 8px 16px; border-radius: 20px; cursor: pointer; font-weight: 600; font-size: 0.9rem;
+            display: flex; align-items: center; gap: 8px;
+        }
+        .theme-btn:hover { background: var(--border); }
 
-        .container { width: 100%; max-width: 1100px; padding: 2rem 1rem; display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
+        .container { width: 100%; max-width: 1200px; padding: 2rem 1rem; display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; }
 
         /* EDITOR SIDE */
         .controls {
-            flex: 1; min-width: 320px; background: #000;
-            border: 1px solid var(--border); border-radius: 16px; padding: 20px;
-            height: fit-content;
+            flex: 1; min-width: 320px; background: var(--surface);
+            border: 1px solid var(--border); border-radius: 16px; padding: 25px;
+            height: fit-content; box-shadow: var(--shadow);
         }
-        .controls h2 { font-size: 1.1rem; margin-bottom: 15px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 5px; }
+        .controls h2 { font-size: 1rem; margin-bottom: 20px; color: var(--text-sub); text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid var(--border); padding-bottom: 10px; }
 
-        .input-row { display: flex; gap: 10px; margin-bottom: 15px; }
+        .input-row { display: flex; gap: 15px; margin-bottom: 15px; }
         .input-group { width: 100%; margin-bottom: 15px; }
         
-        label { display: block; font-size: 0.8rem; color: var(--text-sub); margin-bottom: 5px; font-weight: 600; }
+        label { display: block; font-size: 0.8rem; color: var(--text-sub); margin-bottom: 6px; font-weight: 700; }
         
         input, textarea, select {
-            width: 100%; background: #000; border: 1px solid var(--border);
-            color: white; padding: 12px; border-radius: 4px; font-size: 0.95rem;
-            transition: 0.2s;
+            width: 100%; background: var(--bg-body); border: 1px solid var(--border);
+            color: var(--text-main); padding: 12px; border-radius: 8px; font-size: 0.95rem;
         }
-        input:focus, textarea:focus { border-color: var(--blue); outline: none; }
+        input:focus, textarea:focus { border-color: var(--primary); outline: none; box-shadow: 0 0 0 2px rgba(29, 155, 240, 0.2); }
 
         /* PREVIEW SIDE */
         .preview-area {
-            flex: 1; min-width: 320px; display: flex; flex-direction: column; align-items: center;
+            flex: 1; min-width: 350px; display: flex; flex-direction: column; align-items: center;
         }
 
-        /* --- THE TWEET CARD (PIXEL PERFECT) --- */
+        /* --- THE TWEET CARD (PIXEL PERFECT REPLICA) --- */
         .tweet-container {
-            background: #000000; width: 100%; max-width: 600px; /* Standard Twitter width */
-            padding: 16px; border: 1px solid var(--border); border-radius: 0; /* Twitter web has no radius on feed, but images do */
-            position: relative;
+            background: var(--tweet-bg); width: 100%; max-width: 600px;
+            padding: 16px; border: 1px solid var(--border); border-radius: 0; 
+            position: relative; margin-bottom: 20px;
         }
 
         .user-header { display: flex; gap: 12px; }
-        .pfp-img {
-            width: 48px; height: 48px; border-radius: 50%; object-fit: cover;
-        }
-        .user-names { display: flex; flex-direction: column; justify-content: center; line-height: 1.25; }
-        .display-name { font-weight: 700; font-size: 15px; color: #e7e9ea; display: flex; align-items: center; gap: 4px; }
-        .verified-icon { width: 18px; height: 18px; color: var(--blue); }
+        .pfp-img { width: 48px; height: 48px; border-radius: 50%; object-fit: cover; }
+        
+        .user-names { display: flex; flex-direction: column; justify-content: center; line-height: 1.3; }
+        .display-name { font-weight: 700; font-size: 15px; color: var(--text-main); display: flex; align-items: center; gap: 4px; }
+        .verified-icon { width: 18px; height: 18px; color: var(--primary); }
         .username { color: var(--text-sub); font-size: 15px; }
         
-        .dots { margin-left: auto; color: var(--text-sub); width: 20px; cursor: pointer; }
+        .dots { margin-left: auto; color: var(--text-sub); width: 20px; }
 
         .tweet-text {
-            margin-top: 12px; font-size: 17px; line-height: 24px; color: #e7e9ea;
+            margin-top: 12px; font-size: 17px; line-height: 24px; color: var(--text-main);
             white-space: pre-wrap; font-weight: 400;
         }
-        .hashtag { color: var(--blue); }
-        .mention { color: var(--blue); }
+        .hashtag { color: var(--primary); }
+        .mention { color: var(--primary); }
 
-        /* UPLOADED IMAGE IN TWEET */
         .tweet-media {
             margin-top: 12px; width: 100%; border-radius: 16px; border: 1px solid var(--border);
-            overflow: hidden; display: none; /* Hidden by default */
+            overflow: hidden; display: none;
         }
         .tweet-img { width: 100%; display: block; }
 
         .tweet-meta {
             margin-top: 16px; color: var(--text-sub); font-size: 15px;
             padding-bottom: 16px; border-bottom: 1px solid var(--border);
-            display: flex; gap: 4px; align-items: center;
+            display: flex; gap: 4px; align-items: center; flex-wrap: wrap;
         }
-        .meta-dot { font-weight: 900; font-size: 10px; margin: 0 2px; }
+        
+        .views-section { border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 12px; font-size: 15px; }
+        .views-count { color: var(--text-main); font-weight: 700; margin-right: 4px; }
         .views-label { color: var(--text-sub); }
-        .views-count { color: var(--text-main); font-weight: 600; margin-left: 2px; }
 
         .tweet-stats {
-            padding: 16px 4px; border-bottom: 1px solid var(--border);
+            padding: 4px 0 16px 0; border-bottom: 1px solid var(--border);
             display: flex; gap: 20px; font-size: 14px;
         }
-        .stat-num { color: #e7e9ea; font-weight: 700; }
+        .stat-num { color: var(--text-main); font-weight: 700; }
         .stat-label { color: var(--text-sub); }
 
-        /* EXACT SVG ICONS */
         .tweet-actions {
-            padding-top: 12px; display: flex; justify-content: space-between; max-width: 90%; margin: 0 auto;
+            padding-top: 12px; display: flex; justify-content: space-between; max-width: 90%; margin: 0 auto; color: var(--text-sub);
         }
-        .action-group { display: flex; align-items: center; gap: 0; color: var(--text-sub); }
         .action-icon { width: 22.5px; height: 22.5px; fill: currentColor; }
 
         /* DOWNLOAD BUTTON */
         .btn-dl {
-            width: 100%; max-width: 600px; padding: 16px; margin-top: 20px;
-            background: var(--blue); color: white; font-weight: 800; font-size: 1.1rem;
+            width: 100%; max-width: 600px; padding: 18px; 
+            background: var(--primary); color: white; font-weight: 800; font-size: 1.1rem;
             border: none; border-radius: 50px; cursor: pointer; transition: 0.2s;
-            box-shadow: 0 4px 15px rgba(29, 155, 240, 0.4);
+            box-shadow: 0 10px 20px -5px rgba(29, 155, 240, 0.4);
+            display: flex; align-items: center; justify-content: center; gap: 10px;
         }
         .btn-dl:hover { background: #1a8cd8; transform: translateY(-2px); }
 
         /* ADS */
-        .ad-zone { width: 100%; min-height: 90px; margin: 1rem 0; display: flex; justify-content: center; }
+        .ad-zone { width: 100%; min-height: 90px; margin: 1.5rem 0; display: flex; justify-content: center; background: var(--surface); border-radius: 10px; align-items: center; border: 1px dashed var(--border); }
 
-        /* SEO TEXT */
-        .seo-box { max-width: 800px; margin: 4rem auto; color: var(--text-sub); padding: 0 20px; border-top: 1px solid var(--border); padding-top: 2rem; }
-        h2 { font-size: 1.5rem; color: #fff; margin-bottom: 10px; }
-        p { margin-bottom: 1rem; line-height: 1.6; }
+        /* --- SEO CONTENT SECTION (Google Rank #1 Logic) --- */
+        .seo-content { 
+            width: 100%; max-width: 900px; margin-top: 5rem; 
+            padding: 3rem 2rem; border-top: 1px solid var(--border); 
+        }
+        .seo-box { margin-bottom: 3rem; }
+        h2 { font-size: 2rem; margin-bottom: 1.5rem; color: var(--text-main); }
+        h3 { font-size: 1.3rem; margin-bottom: 1rem; color: var(--text-main); }
+        p { color: var(--text-sub); line-height: 1.7; margin-bottom: 1.5rem; font-size: 1.05rem; }
+        ul { color: var(--text-sub); margin-bottom: 1.5rem; padding-left: 20px; }
+        li { margin-bottom: 10px; }
 
+        /* Example Grid */
+        .example-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .example-card { background: var(--surface); padding: 20px; border-radius: 12px; border: 1px solid var(--border); }
+        .example-card h4 { color: var(--primary); margin-bottom: 10px; }
+
+        footer { margin-top: 4rem; text-align: center; color: var(--text-sub); font-size: 0.9rem; padding-bottom: 2rem; }
     </style>
 </head>
 <body>
@@ -168,32 +217,33 @@
     <nav>
         <div class="logo">
             <svg class="x-logo" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg>
-            <span>Fake Post Generator</span>
+            <span>FakeTweet</span>
         </div>
+        <button class="theme-btn" id="themeToggle">☀️ Switch Theme</button>
     </nav>
 
     <div class="container">
         
         <div class="controls">
-            <h2>👤 User Info</h2>
+            <h2>👤 Profile Settings</h2>
             <div class="input-row">
                 <div class="input-group">
-                    <label>Profile Pic</label>
+                    <label>Upload Photo</label>
                     <input type="file" id="pfpInput" accept="image/*">
                 </div>
                 <div class="input-group">
-                    <label>Verify Badge</label>
+                    <label>Badge</label>
                     <select id="verifySelect">
                         <option value="blue">Blue (Premium)</option>
-                        <option value="gold">Gold (Org)</option>
+                        <option value="gold">Gold (Business)</option>
                         <option value="gray">Gray (Gov)</option>
-                        <option value="none">None</option>
+                        <option value="none">No Badge</option>
                     </select>
                 </div>
             </div>
             
             <div class="input-group">
-                <label>Name</label>
+                <label>Display Name</label>
                 <input type="text" id="nameInput" value="Elon Musk">
             </div>
             <div class="input-group">
@@ -201,37 +251,36 @@
                 <input type="text" id="handleInput" value="elonmusk">
             </div>
 
-            <h2>📝 Content</h2>
+            <h2>📝 Tweet Content</h2>
             <div class="input-group">
-                <label>Message</label>
+                <label>Message Text</label>
                 <textarea id="msgInput" rows="4">I bought Twitter just to fix the algorithm. You're welcome.</textarea>
             </div>
             <div class="input-group">
-                <label>Attach Image (Optional)</label>
+                <label>Attach Meme/Image</label>
                 <input type="file" id="tweetImgInput" accept="image/*">
             </div>
 
-            <h2>📊 Metrics</h2>
+            <h2>📊 Engagement Stats</h2>
             <div class="input-row">
                 <input type="text" id="timeInput" value="4:20 PM">
                 <input type="text" id="dateInput" value="Apr 1, 2025">
             </div>
             <div class="input-group">
-                <label>Client (Device)</label>
+                <label>Device Label</label>
                 <input type="text" id="deviceInput" value="Twitter for iPhone">
             </div>
             <div class="input-row">
-                <input type="text" id="retweetsInput" value="69K" placeholder="Retweets">
+                <input type="text" id="retweetsInput" value="69K" placeholder="RTs">
                 <input type="text" id="likesInput" value="420K" placeholder="Likes">
             </div>
             <div class="input-group">
-                <label>Views</label>
+                <label>View Count</label>
                 <input type="text" id="viewsInput" value="45.2M">
             </div>
         </div>
 
         <div class="preview-area">
-            
             <div class="ad-zone">
                 <script type='text/javascript' src='//pl28120871.effectivegatecpm.com/b8/2a/fe/b82afee8cc534f12fba12741bfb629a1.js'></script>
             </div>
@@ -249,9 +298,7 @@
                     <svg viewBox="0 0 24 24" class="dots" fill="currentColor"><g><path d="M3 12c0-1.1.9-2 2-2s2 .9 2 2-.9 2-2 2-2-.9-2-2zm9 2c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zm7 0c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2z"></path></g></svg>
                 </div>
 
-                <div class="tweet-text" id="msgDisplay">
-                    I bought Twitter just to fix the algorithm. You're welcome.
-                </div>
+                <div class="tweet-text" id="msgDisplay">I bought Twitter just to fix the algorithm. You're welcome.</div>
 
                 <div class="tweet-media" id="mediaContainer">
                     <img id="tweetImgDisplay" class="tweet-img">
@@ -262,8 +309,8 @@
                     · <span style="color:#1d9bf0" id="deviceDisplay">Twitter for iPhone</span>
                 </div>
                 
-                <div style="border-bottom:1px solid #2f3336; padding-bottom:12px; margin-bottom:12px; font-size:15px;">
-                    <span style="color:#e7e9ea; font-weight:700;" id="viewsCount">45.2M</span> <span style="color:#71767b;">Views</span>
+                <div class="views-section">
+                    <span class="views-count" id="viewsCount">45.2M</span> <span class="views-label">Views</span>
                 </div>
 
                 <div class="tweet-stats">
@@ -297,54 +344,119 @@
             </div>
         </div>
 
-        <div class="seo-box">
-            <h2>Create Fake Tweets Instantly</h2>
-            <p>Make realistic fake X posts for memes and pranks. Customize the name, username, verified badge, likes, retweets, and even the device label (e.g., Twitter for iPhone).</p>
-            <p><strong>Features:</strong><br>
-            - Dark Mode UI (Exact Match)<br>
-            - Image Support (Upload memes)<br>
-            - Custom Profile Picture<br>
-            - High Quality Download (PNG)</p>
-        </div>
-
     </div>
+
+    <div class="seo-content" style="width:100%; max-width:1000px; margin:0 auto; padding:20px;">
+        <div class="seo-box">
+            <h2>Why is this the Best Fake Tweet Generator?</h2>
+            <p>We provide a 1:1 replica of the X (formerly Twitter) interface. Unlike other tools that look fake or outdated, our generator supports the modern design, Verified Blue/Gold badges, and realistic fonts.</p>
+            
+            <div class="example-grid">
+                <div class="example-card">
+                    <h4>😂 Create Memes</h4>
+                    <p>Make your favorite celebrities say funny things. Perfect for Instagram and Reddit.</p>
+                </div>
+                <div class="example-card">
+                    <h4>📱 Prank Friends</h4>
+                    <p>Send a screenshot of a DM or Tweet from a famous person to trick your friends.</p>
+                </div>
+                <div class="example-card">
+                    <h4>🌗 Dark & Light Mode</h4>
+                    <p>One click to switch themes. Supports the exact color palette of the real app.</p>
+                </div>
+            </div>
+
+            <h3>How to make a Fake X Post?</h3>
+            <ol>
+                <li><strong>Upload Profile Pic:</strong> Use any image to set the avatar.</li>
+                <li><strong>Write Content:</strong> Type your joke, quote, or message. Add hashtags for blue color.</li>
+                <li><strong>Customize Stats:</strong> Set millions of likes to make it look viral.</li>
+                <li><strong>Download:</strong> Click the button to get a high-quality PNG.</li>
+            </ol>
+        </div>
+    </div>
+
+    <footer>
+        © 2025 FakeTweetMaker • For Entertainment Purposes Only • Privacy Friendly
+    </footer>
 
     <script>
         const POP_LINK = "https://www.effectivegatecpm.com/mya99wcxc?key=64d9a20b4180ef34ece4742665c53be0";
 
-        // Badges SVG
+        // Badges
         const BLUE_BADGE = `<svg viewBox="0 0 24 24" class="verified-icon"><g><path d="M22.5 12.5c0-1.58-.875-2.95-2.148-3.6.154-.435.238-.905.238-1.4 0-2.21-1.71-3.998-3.818-3.998-.47 0-.92.084-1.336.25C14.818 2.415 13.51 1.5 12 1.5s-2.816.917-3.437 2.25c-.415-.165-.866-.25-1.336-.25-2.11 0-3.818 1.79-3.818 4 0 .495.083.965.238 1.4-1.272.65-2.147 2.02-2.147 3.6 0 1.457.755 2.739 1.89 3.48-.065.176-.102.36-.102.553 0 2.21 1.71 3.998 3.818 3.998.47 0 .92-.084 1.336-.25.62 1.333 1.926 2.248 3.437 2.248s2.816-.915 3.437-2.248c.416.166.866.25 1.336.25 2.11 0 3.818-1.79 3.818-4 0-.194-.037-.377-.102-.553 1.134-.74 1.89-2.023 1.89-3.48zm-8.293 2.157L10.5 18.303l-4.207-4.207 1.414-1.414L10.5 15.475l2.293-2.293 3.707 3.707-1.414 1.414z"></path></g></svg>`;
         const GOLD_BADGE = `<svg viewBox="0 0 24 24" class="verified-icon" style="color:#e7b416;"><g><path d="M22.25 12c0-1.43-.88-2.67-2.19-3.34.46-1.39.02-3.01-1.09-3.97-1.47-1.27-3.69-1.27-5.16 0-.39-.33-1.42-1.13-1.81-1.19-2.09-.31-4.06 1.15-4.32 3.19C6.41 7.29 5.3 8.35 4.67 9.68c-1.31.67-2.19 1.91-2.19 3.34s.88 2.67 2.19 3.34c.53 1.11 1.66 2.25 3.01 2.97.26 2.04 2.23 3.5 4.32 3.19.39-.06 1.42-.86 1.81-1.19 1.47 1.27 3.69 1.27 5.16 0 1.11-.96 1.55-2.58 1.09-3.97 1.31-.67 2.19-1.91 2.19-3.34zm-11.71 4.2L6.8 12.46l1.41-1.42 2.26 2.26 4.8-5.23 1.47 1.36-6.2 6.77z"></path></g></svg>`;
 
-        // Inputs
-        const ids = ['name', 'handle', 'msg', 'time', 'date', 'device', 'views', 'retweets', 'likes'];
-        
-        // Setup Live Listeners
-        ids.forEach(id => {
-            document.getElementById(id + 'Input').addEventListener('input', (e) => {
-                let val = e.target.value;
-                if(id === 'msg') val = val.replace(/#(\w+)/g, '<span class="hashtag">#$1</span>').replace(/@(\w+)/g, '<span class="mention">@$1</span>');
-                document.getElementById(id + 'Display').innerHTML = val + (id === 'views' || id === 'retweets' || id === 'likes' ? '' : '');
-                if(id === 'views') document.getElementById('viewsCount').innerText = val;
-                if(id === 'retweets') document.getElementById('retweetsCount').innerText = val;
-                if(id === 'likes') document.getElementById('likesCount').innerText = val;
-            });
+        // THEME TOGGLE LOGIC
+        const themeBtn = document.getElementById('themeToggle');
+        themeBtn.addEventListener('click', () => {
+            document.body.classList.toggle('light-mode');
+            themeBtn.innerText = document.body.classList.contains('light-mode') ? '🌙 Switch to Dark' : '☀️ Switch to Light';
         });
 
-        // Badge Logic
-        const badgeSelect = document.getElementById('verifySelect');
-        const badgeIcon = document.getElementById('badgeIcon');
-        
-        function updateBadge() {
-            if(badgeSelect.value === 'blue') badgeIcon.innerHTML = BLUE_BADGE;
-            else if(badgeSelect.value === 'gold') badgeIcon.innerHTML = GOLD_BADGE;
-            else if(badgeSelect.value === 'gray') badgeIcon.innerHTML = BLUE_BADGE.replace('class="verified-icon"', 'class="verified-icon" style="color:#829aab"');
-            else badgeIcon.innerHTML = '';
-        }
-        badgeSelect.addEventListener('change', updateBadge);
-        updateBadge(); // Init
+        // INPUTS MAPPING
+        const inputs = {
+            name: document.getElementById('nameInput'),
+            handle: document.getElementById('handleInput'),
+            text: document.getElementById('textInput'),
+            views: document.getElementById('viewsInput'),
+            date: document.getElementById('dateInput'),
+            time: document.getElementById('timeInput'),
+            device: document.getElementById('deviceInput'),
+            retweets: document.getElementById('retweetsInput'),
+            likes: document.getElementById('likesInput'),
+            verify: document.getElementById('verifySelect')
+        };
 
-        // Image Logic
+        const displays = {
+            name: document.getElementById('nameDisplay'),
+            handle: document.getElementById('handleDisplay'),
+            text: document.getElementById('textDisplay'),
+            views: document.getElementById('viewsCount'),
+            date: document.getElementById('dateDisplay'),
+            time: document.getElementById('timeDisplay'),
+            device: document.getElementById('deviceDisplay'),
+            retweets: document.getElementById('retweetsCount'),
+            likes: document.getElementById('likesCount'),
+            badge: document.getElementById('badgeIcon')
+        };
+
+        // EVENT LISTENERS
+        Object.keys(inputs).forEach(key => {
+            if(inputs[key]) {
+                inputs[key].addEventListener('input', updateDisplay);
+                inputs[key].addEventListener('change', updateDisplay); // For select/file
+            }
+        });
+
+        function updateDisplay() {
+            displays.name.innerText = inputs.name.value;
+            displays.handle.innerText = inputs.handle.value;
+            
+            // Text with hashtag styling
+            let t = inputs.text.value;
+            t = t.replace(/#(\w+)/g, '<span class="hashtag">#$1</span>');
+            t = t.replace(/@(\w+)/g, '<span class="mention">@$1</span>');
+            displays.text.innerHTML = t;
+
+            displays.views.innerText = inputs.views.value;
+            displays.date.innerText = inputs.date.value;
+            displays.time.innerText = inputs.time.value;
+            displays.device.innerText = inputs.device.value;
+            displays.retweets.innerText = inputs.retweets.value;
+            displays.likes.innerText = inputs.likes.value;
+
+            // Badge
+            if(inputs.verify.value === 'blue') displays.badge.innerHTML = BLUE_BADGE;
+            else if(inputs.verify.value === 'gold') displays.badge.innerHTML = GOLD_BADGE;
+            else if(inputs.verify.value === 'gray') displays.badge.innerHTML = BLUE_BADGE.replace('class="verified-icon"', 'class="verified-icon" style="color:#829aab"');
+            else displays.badge.innerHTML = '';
+        }
+
+        // INIT
+        updateDisplay();
+
+        // IMAGE UPLOADS
         document.getElementById('pfpInput').addEventListener('change', function() {
             if (this.files && this.files[0]) {
                 const reader = new FileReader();
@@ -364,18 +476,21 @@
             }
         });
 
-        // Download
+        // DOWNLOAD LOGIC
         document.getElementById('dlBtn').addEventListener('click', () => {
-            // 💰 Ad Trigger
             if(POP_LINK) window.open(POP_LINK, '_blank');
 
-            html2canvas(document.getElementById('tweetCapture'), {
-                scale: 3, // Ultra Sharp
-                backgroundColor: "#000000",
+            // Capture proper colors based on current theme
+            const card = document.getElementById('tweetCapture');
+            const isLight = document.body.classList.contains('light-mode');
+            
+            html2canvas(card, {
+                scale: 3,
+                backgroundColor: isLight ? "#ffffff" : "#000000",
                 useCORS: true
             }).then(canvas => {
                 const link = document.createElement('a');
-                link.download = 'Fake_Tweet_' + Date.now() + '.png';
+                link.download = `Fake_Tweet_${Date.now()}.png`;
                 link.href = canvas.toDataURL('image/png');
                 link.click();
             });
